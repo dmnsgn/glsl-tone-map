@@ -1,0 +1,33 @@
+{
+  "name": "glsl-tone-map",
+  "version": "1.0.0",
+  "description": "A collection of tone mapping GLSL functions, available as modules for glslify.",
+  "main": "aces.glsl",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Damien Seguin <https://github.com/dmnsgn/>",
+  "homepage": "https://github.com/dmnsgn/glsl-tone-map",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmnsgn/glsl-tone-map"
+  },
+  "keywords": [
+    "glsl",
+    "tonemap",
+    "tonemapping",
+    "tone",
+    "aces",
+    "uncharted",
+    "filmic",
+    "lottes",
+    "reinhard",
+    "reinhard2",
+    "uchimura",
+    "unreal"
+  ],
+  "issues": {
+    "url": "https://github.com/dmnsgn/glsl-tone-map/issues"
+  },
+  "license": "MIT"
+}
