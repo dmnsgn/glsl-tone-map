@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>glsl-tone-map by dmnsgn (https://github.com/dmnsgn)</title>
+    <style>
+      :root {
+        --color-dark: #404040;
+        --color-light: #f2f2f2;
+        --color-accent: #fd5e62;
+      }
+
+      body {
+        margin: 0;
+        overscroll-behavior: none;
+        font-family: sans-serif;
+        color: var(--color-dark);
+        background-color: var(--color-light);
+      }
+
+      main {
+        padding: 0 20px;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@highlightjs/cdn-assets@11.4.0/styles/github-dark-dimmed.min.css"
+    />
+  </head>
+  <body>
+    <main>
+      <h1>glsl-tone-map</h1>
+    </main>
+
+    <script type="module">
+      import * as glslToneMap from "./index.js";
+
+      import hljs from "https://unpkg.com/@highlightjs/cdn-assets@11.4.0/es/highlight.min.js";
+      import glsl from "https://unpkg.com/@highlightjs/cdn-assets@11.4.0/es/languages/glsl.min.js";
+
+      const mainElement = document.querySelector("main");
+      Object.entries(glslToneMap).forEach(([name, shader]) => {
+        const div = document.createElement("div");
+        div.innerHTML = `<h2>${name}</h2><pre><code class="language-glsl">${shader}</code></pre>`;
+        mainElement.appendChild(div);
+      });
+
+      hljs.registerLanguage("glsl", glsl);
+      hljs.highlightAll();
+    </script>
+  </body>
+</html>

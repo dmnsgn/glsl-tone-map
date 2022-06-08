@@ -1,17 +1,7 @@
 {
   "name": "glsl-tone-map",
   "version": "1.0.0",
-  "description": "A collection of tone mapping GLSL functions, available as modules for glslify.",
-  "main": "aces.glsl",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Damien Seguin <https://github.com/dmnsgn/>",
-  "homepage": "https://github.com/dmnsgn/glsl-tone-map",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/dmnsgn/glsl-tone-map"
-  },
+  "description": "A collection of tone mapping functions available both as ES modules strings and as GLSL files for use with glslify.",
   "keywords": [
     "glsl",
     "tonemap",
@@ -26,8 +16,37 @@
     "uchimura",
     "unreal"
   ],
-  "issues": {
-    "url": "https://github.com/dmnsgn/glsl-tone-map/issues"
+  "homepage": "https://github.com/dmnsgn/glsl-tone-map",
+  "bugs": "https://github.com/dmnsgn/glsl-tone-map/issues",
+  "repository": "dmnsgn/glsl-tone-map",
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://paypal.me/dmnsgn"
+    },
+    {
+      "type": "individual",
+      "url": "https://commerce.coinbase.com/checkout/56cbdf28-e323-48d8-9c98-7019e72c97f3"
+    }
+  ],
+  "license": "MIT",
+  "author": "dmnsgn (https://github.com/dmnsgn)",
+  "sideEffects": false,
+  "type": "module",
+  "exports": "./index.js",
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "scripts": {
+    "test": "glslify test/index.glsl"
   },
-  "license": "MIT"
+  "devDependencies": {
+    "glslify": "^7.1.1"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  },
+  "snowdev": {
+    "dependencies": []
+  }
 }

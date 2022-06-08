@@ -1,0 +1,10 @@
+web_modules
+examples
+docs
+coverage
+test
+.github
+screenshot.*
+index.html
+tsconfig.json
+.editorconfig
