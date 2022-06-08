@@ -27,7 +27,7 @@ npm install glsl-tone-map
 ### ESM
 
 ```js
-import * as glslToneMap from "./index.js";
+import * as glslToneMap from "glsl-tone-map";
 
 const shader = /* glsl */ `
 ${glslToneMap.ACES}
@@ -55,14 +55,14 @@ void main() {
 ### glslify
 
 ```glsl
-#pragma glslify: aces = require(../aces)
-#pragma glslify: filmic = require(../filmic)
-#pragma glslify: lottes = require(../lottes)
-#pragma glslify: reinhard = require(../reinhard)
-#pragma glslify: reinhard2 = require(../reinhard2)
-#pragma glslify: uchimura = require(../uchimura)
-#pragma glslify: uncharted2 = require(../uncharted2)
-#pragma glslify: unreal = require(../unreal)
+#pragma glslify: aces = require(glsl-tone-map/aces)
+#pragma glslify: filmic = require(glsl-tone-map/filmic)
+#pragma glslify: lottes = require(glsl-tone-map/lottes)
+#pragma glslify: reinhard = require(glsl-tone-map/reinhard)
+#pragma glslify: reinhard2 = require(glsl-tone-map/reinhard2)
+#pragma glslify: uchimura = require(glsl-tone-map/uchimura)
+#pragma glslify: uncharted2 = require(glsl-tone-map/uncharted2)
+#pragma glslify: unreal = require(glsl-tone-map/unreal)
 
 void main() {
   // ...
