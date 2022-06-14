@@ -30,7 +30,7 @@
     }
   ],
   "license": "MIT",
-  "author": "dmnsgn (https://github.com/dmnsgn)",
+  "author": "Damien Seguin (https://github.com/dmnsgn)",
   "sideEffects": false,
   "type": "module",
   "exports": "./index.js",
