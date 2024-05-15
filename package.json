@@ -1,6 +1,6 @@
 {
   "name": "glsl-tone-map",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "A collection of tone mapping functions available both as ES modules strings and as GLSL files for use with glslify.",
   "keywords": [
     "glsl",
