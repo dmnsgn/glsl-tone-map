@@ -1,3 +1,5 @@
+#pragma glslify: agx = require(../agx)
+#pragma glslify: neutral = require(../neutral)
 #pragma glslify: aces = require(../aces)
 #pragma glslify: filmic = require(../filmic)
 #pragma glslify: lottes = require(../lottes)
@@ -9,6 +11,8 @@
 
 void main() {
   // ...
+  color.rgb = agx(color.rgb);
+  color.rgb = neutral(color.rgb);
   color.rgb = aces(color.rgb);
   color.rgb = filmic(color.rgb);
   color.rgb = lottes(color.rgb);
