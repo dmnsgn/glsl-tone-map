@@ -1,4 +1,5 @@
 import { default as ACES } from "./aces.glsl.js";
+import { default as AGX } from "./agx.glsl.js";
 import { default as FILMIC } from "./filmic.glsl.js";
 import { default as LOTTES } from "./lottes.glsl.js";
 import { default as NEUTRAL } from "./neutral.glsl.js";
@@ -10,6 +11,7 @@ import { default as UNREAL } from "./unreal.glsl.js";
 
 export {
   ACES,
+  AGX,
   FILMIC,
   LOTTES,
   NEUTRAL,

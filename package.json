@@ -7,6 +7,8 @@
     "tonemap",
     "tonemapping",
     "tone",
+    "agx",
+    "neutral",
     "aces",
     "uncharted",
     "filmic",
@@ -43,8 +45,9 @@
     "glslify": "^7.1.1"
   },
   "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=7.0.0"
+    "node": ">=22.0.0",
+    "npm": ">=10.5.1",
+    "snowdev": "2.0.0-alpha.28"
   },
   "snowdev": {
     "dependencies": []

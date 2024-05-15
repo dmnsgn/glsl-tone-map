@@ -30,6 +30,7 @@ npm install glsl-tone-map
 import * as glslToneMap from "glsl-tone-map";
 
 const shader = /* glsl */ `
+${glslToneMap.AGX}
 ${glslToneMap.NEUTRAL}
 ${glslToneMap.ACES}
 ${glslToneMap.FILMIC}
@@ -42,6 +43,7 @@ ${glslToneMap.UNREAL}
 
 void main() {
   // ...
+  color.rgb = agx(color.rgb);
   color.rgb = neutral(color.rgb);
   color.rgb = aces(color.rgb);
   color.rgb = filmic(color.rgb);
@@ -57,6 +59,7 @@ void main() {
 ### glslify
 
 ```glsl
+#pragma glslify: agx = require(glsl-tone-map/agx)
 #pragma glslify: neutral = require(glsl-tone-map/neutral)
 #pragma glslify: aces = require(glsl-tone-map/aces)
 #pragma glslify: filmic = require(glsl-tone-map/filmic)
@@ -69,6 +72,7 @@ void main() {
 
 void main() {
   // ...
+  color.rgb = agx(color.rgb);
   color.rgb = neutral(color.rgb);
   color.rgb = aces(color.rgb);
   color.rgb = filmic(color.rgb);
