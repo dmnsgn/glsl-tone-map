@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
-types
-lib
+/types
+/lib
