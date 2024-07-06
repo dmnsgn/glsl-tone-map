@@ -1,6 +1,6 @@
 {
   "name": "glsl-tone-map",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A collection of tone mapping functions available both as ES modules strings and as GLSL files for use with glslify.",
   "keywords": [
     "glsl",
@@ -20,7 +20,10 @@
   ],
   "homepage": "https://github.com/dmnsgn/glsl-tone-map",
   "bugs": "https://github.com/dmnsgn/glsl-tone-map/issues",
-  "repository": "dmnsgn/glsl-tone-map",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmnsgn/glsl-tone-map.git"
+  },
   "funding": [
     {
       "type": "individual",
