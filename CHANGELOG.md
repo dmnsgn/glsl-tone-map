@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+# [2.2.0](https://github.com/dmnsgn/glsl-tone-map/compare/v2.1.1...v2.2.0) (2025-09-03)
+
+
+### Bug Fixes
+
+* compute luminance for saturation after ASC CDL transform ([43133dc](https://github.com/dmnsgn/glsl-tone-map/commit/43133dc7b45f0f846c249db3d3e27aad65f77b13))
+
+
+### Features
+
+* add agx with slope/offset/power/saturation CDL + expose agx golden and punchy looks as functions ([a0ac73c](https://github.com/dmnsgn/glsl-tone-map/commit/a0ac73c0d9bc093f98d795f5fd21519067452dad))
+
+
+
 ## [2.1.1](https://github.com/dmnsgn/glsl-tone-map/compare/v2.1.0...v2.1.1) (2024-07-06)
 
 
