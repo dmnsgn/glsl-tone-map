@@ -37,20 +37,8 @@ const mat3 AgXOutsetMatrix = mat3(
 const float AgxMinEv = -12.47393;
 const float AgxMaxEv = 4.026069;
 
-// 0: Default, 1: Golden, 2: Punchy
-#ifndef AGX_LOOK
-  #define AGX_LOOK 0
-#endif
-
-vec3 agxAscCdl(vec3 color, vec3 slope, vec3 offset, vec3 power, float sat) {
-  vec3 c = pow(color * slope + offset, power);
-  const vec3 lw = vec3(0.2126, 0.7152, 0.0722);
-  float luma = dot(c, lw);
-  return luma + sat * (c - luma);
-}
-
 // Sample usage
-vec3 agx(vec3 color) {
+vec3 agxCdl(vec3 color, vec3 slope, vec3 offset, vec3 power, float saturation) {
   color = LINEAR_SRGB_TO_LINEAR_REC2020 * color; // From three.js
 
   // 1. agx()
@@ -78,13 +66,10 @@ vec3 agx(vec3 color) {
           - 0.00232;
 
   // 2. agxLook()
-  #if AGX_LOOK == 1
-    // Golden
-    color = agxAscCdl(color, vec3(1.0, 0.9, 0.5), vec3(0.0), vec3(0.8), 1.3);
-  #elif AGX_LOOK == 2
-    // Punchy
-    color = agxAscCdl(color, vec3(1.0), vec3(0.0), vec3(1.35), 1.4);
-  #endif
+  color = pow(color * slope + offset, power);
+  const vec3 lw = vec3(0.2126, 0.7152, 0.0722);
+  float luma = dot(color, lw);
+  color = luma + saturation * (color - luma);
 
   // 3. agxEotf()
   // Inverse input transform (outset)
@@ -100,5 +85,17 @@ vec3 agx(vec3 color) {
 	color = clamp(color, 0.0, 1.0);
 
   return color;
+}
+
+vec3 agx(vec3 color) {
+  return agxCdl(color, vec3(1.0), vec3(0.0), vec3(1.0), 1.0);
+}
+
+vec3 agxGolden(vec3 color) {
+  return agxCdl(color, vec3(1.0, 0.9, 0.5), vec3(0.0), vec3(0.8), 1.3);
+}
+
+vec3 agxPunchy(vec3 color) {
+  return agxCdl(color, vec3(1.0), vec3(0.0), vec3(1.35), 1.4);
 }
 `;
