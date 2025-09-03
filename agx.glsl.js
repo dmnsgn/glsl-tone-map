@@ -43,9 +43,9 @@ const float AgxMaxEv = 4.026069;
 #endif
 
 vec3 agxAscCdl(vec3 color, vec3 slope, vec3 offset, vec3 power, float sat) {
-  const vec3 lw = vec3(0.2126, 0.7152, 0.0722);
-  float luma = dot(color, lw);
   vec3 c = pow(color * slope + offset, power);
+  const vec3 lw = vec3(0.2126, 0.7152, 0.0722);
+  float luma = dot(c, lw);
   return luma + sat * (c - luma);
 }
 
