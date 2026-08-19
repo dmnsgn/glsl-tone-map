@@ -1,5 +1,4 @@
-export default /* glsl */ `
-// Missing Deadlines (Benjamin Wrensch): https://iolite-engine.com/blog_posts/minimal_agx_implementation
+export default /* glsl */ `// Missing Deadlines (Benjamin Wrensch): https://iolite-engine.com/blog_posts/minimal_agx_implementation
 // Filament: https://github.com/google/filament/blob/main/filament/src/ToneMapper.cpp#L263
 // https://github.com/EaryChow/AgX_LUT_Gen/blob/main/AgXBaseRec2020.py
 
@@ -97,5 +96,9 @@ vec3 agxGolden(vec3 color) {
 
 vec3 agxPunchy(vec3 color) {
   return agxCdl(color, vec3(1.0), vec3(0.0), vec3(1.35), 1.4);
+}
+
+vec3 agxNeedle(vec3 color) {
+  return agxCdl(color, vec3(1.05), vec3(0.0), vec3(1.1), 1.15);
 }
 `;

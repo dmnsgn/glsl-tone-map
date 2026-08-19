@@ -3,6 +3,7 @@
 /docs
 /coverage
 /test
+/scripts
 /.github
 screenshot.*
 index.html

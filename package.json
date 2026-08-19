@@ -1,53 +1,23 @@
 {
-  "name": "glsl-tone-map",
-  "version": "2.2.0",
-  "description": "A collection of tone mapping functions available both as ES modules strings and as GLSL files for use with glslify.",
-  "keywords": [
-    "glsl",
-    "tonemap",
-    "tonemapping",
-    "tone",
-    "agx",
-    "neutral",
-    "aces",
-    "uncharted",
-    "filmic",
-    "lottes",
-    "reinhard",
-    "reinhard2",
-    "uchimura",
-    "unreal"
-  ],
-  "homepage": "https://github.com/dmnsgn/glsl-tone-map",
-  "bugs": "https://github.com/dmnsgn/glsl-tone-map/issues",
+  "name": "shaders-tone-map",
+  "private": true,
+  "description": "Monorepo for the GLSL and WGSL tone mapping shader collections.",
+  "homepage": "https://github.com/dmnsgn/shaders-tone-map",
+  "bugs": "https://github.com/dmnsgn/shaders-tone-map/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dmnsgn/glsl-tone-map.git"
+    "url": "git+https://github.com/dmnsgn/shaders-tone-map.git"
   },
-  "funding": [
-    {
-      "type": "individual",
-      "url": "https://paypal.me/dmnsgn"
-    },
-    {
-      "type": "individual",
-      "url": "https://commerce.coinbase.com/checkout/56cbdf28-e323-48d8-9c98-7019e72c97f3"
-    }
-  ],
   "license": "MIT",
   "author": "Damien Seguin (https://github.com/dmnsgn)",
-  "sideEffects": false,
   "type": "module",
-  "exports": {
-    ".": {
-      "types": "./types/index.d.ts",
-      "default": "./index.js"
-    }
-  },
-  "main": "index.js",
-  "types": "types/index.d.ts",
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
-    "test": "glslify test/index.glsl"
+    "build:shaders": "node scripts/build.js",
+    "build:plot": "deno run --unstable-webgpu --allow-read --allow-write scripts/plot.js",
+    "test": "node --test \"test/*.test.js\""
   },
   "devDependencies": {
     "glslify": "^7.1.1"
@@ -56,8 +26,5 @@
     "node": ">=22.0.0",
     "npm": ">=10.5.1",
     "snowdev": "2.0.0-alpha.28"
-  },
-  "snowdev": {
-    "dependencies": []
   }
 }

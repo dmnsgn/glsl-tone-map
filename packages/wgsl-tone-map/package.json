@@ -1,0 +1,61 @@
+{
+  "name": "wgsl-tone-map",
+  "version": "1.0.0",
+  "description": "A collection of tone mapping functions available both as ES modules strings and as WGSL files.",
+  "keywords": [
+    "wgsl",
+    "webgpu",
+    "tonemap",
+    "tonemapping",
+    "tone",
+    "agx",
+    "neutral",
+    "aces",
+    "hejl",
+    "uncharted",
+    "filmic",
+    "lottes",
+    "reinhard",
+    "reinhard2",
+    "uchimura",
+    "unreal"
+  ],
+  "homepage": "https://github.com/dmnsgn/shaders-tone-map/tree/main/packages/wgsl-tone-map",
+  "bugs": "https://github.com/dmnsgn/shaders-tone-map/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dmnsgn/shaders-tone-map.git",
+    "directory": "packages/wgsl-tone-map"
+  },
+  "funding": [
+    {
+      "type": "individual",
+      "url": "https://paypal.me/dmnsgn"
+    },
+    {
+      "type": "individual",
+      "url": "https://commerce.coinbase.com/checkout/56cbdf28-e323-48d8-9c98-7019e72c97f3"
+    }
+  ],
+  "license": "MIT",
+  "author": "Damien Seguin (https://github.com/dmnsgn)",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "default": "./index.js"
+    },
+    "./*.wgsl": "./*.wgsl"
+  },
+  "main": "index.js",
+  "types": "types/index.d.ts",
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.5.1",
+    "snowdev": ">=3.0.0-alpha.1"
+  },
+  "snowdev": {
+    "dependencies": []
+  }
+}
