@@ -14,7 +14,7 @@ A collection of tone mapping functions available both as ES modules strings and 
 
 Looking for WebGPU? See [wgsl-tone-map](https://github.com/dmnsgn/shaders-tone-map/tree/main/packages/wgsl-tone-map), which ships the same operators in WGSL.
 
-![Response curves for the eleven tone mapping operators, linear input against linear output](https://raw.githubusercontent.com/dmnsgn/shaders-tone-map/main/screenshot.svg)
+![Response curves for the thirteen tone mapping operators, linear input against linear output](https://raw.githubusercontent.com/dmnsgn/shaders-tone-map/main/screenshot.svg)
 
 [![paypal](https://img.shields.io/badge/donate-paypal-informational?logo=paypal)](https://paypal.me/dmnsgn)
 [![coinbase](https://img.shields.io/badge/donate-coinbase-informational?logo=coinbase)](https://commerce.coinbase.com/checkout/56cbdf28-e323-48d8-9c98-7019e72c97f3)
@@ -37,11 +37,13 @@ const shader = /* glsl */ `
 ${glslToneMap.AGX}
 ${glslToneMap.NEUTRAL}
 ${glslToneMap.ACES}
+${glslToneMap.ACES_HILL}
 ${glslToneMap.FILMIC}
 ${glslToneMap.HEJL}
 ${glslToneMap.LOTTES}
 ${glslToneMap.REINHARD}
 ${glslToneMap.REINHARD2}
+${glslToneMap.REINHARD_JODIE}
 ${glslToneMap.UCHIMURA}
 ${glslToneMap.UNCHARTED2}
 ${glslToneMap.UNREAL}
@@ -51,11 +53,13 @@ void main() {
   color.rgb = agx(color.rgb);
   color.rgb = neutral(color.rgb);
   color.rgb = aces(color.rgb);
+  color.rgb = acesHill(color.rgb);
   color.rgb = filmic(color.rgb);
   color.rgb = hejl(color.rgb);
   color.rgb = lottes(color.rgb);
   color.rgb = reinhard(color.rgb);
   color.rgb = reinhard2(color.rgb);
+  color.rgb = reinhardJodie(color.rgb);
   color.rgb = uchimura(color.rgb);
   color.rgb = uncharted2(color.rgb);
   color.rgb = unreal(color.rgb);
@@ -70,11 +74,13 @@ Each operator also ships as a plain `.glsl` file (eg. `glsl-tone-map/aces.glsl`)
 #pragma glslify: agx = require(glsl-tone-map/agx)
 #pragma glslify: neutral = require(glsl-tone-map/neutral)
 #pragma glslify: aces = require(glsl-tone-map/aces)
+#pragma glslify: acesHill = require(glsl-tone-map/acesHill)
 #pragma glslify: filmic = require(glsl-tone-map/filmic)
 #pragma glslify: hejl = require(glsl-tone-map/hejl)
 #pragma glslify: lottes = require(glsl-tone-map/lottes)
 #pragma glslify: reinhard = require(glsl-tone-map/reinhard)
 #pragma glslify: reinhard2 = require(glsl-tone-map/reinhard2)
+#pragma glslify: reinhardJodie = require(glsl-tone-map/reinhardJodie)
 #pragma glslify: uchimura = require(glsl-tone-map/uchimura)
 #pragma glslify: uncharted2 = require(glsl-tone-map/uncharted2)
 #pragma glslify: unreal = require(glsl-tone-map/unreal)
@@ -84,11 +90,13 @@ void main() {
   color.rgb = agx(color.rgb);
   color.rgb = neutral(color.rgb);
   color.rgb = aces(color.rgb);
+  color.rgb = acesHill(color.rgb);
   color.rgb = filmic(color.rgb);
   color.rgb = hejl(color.rgb);
   color.rgb = lottes(color.rgb);
   color.rgb = reinhard(color.rgb);
   color.rgb = reinhard2(color.rgb);
+  color.rgb = reinhardJodie(color.rgb);
   color.rgb = uchimura(color.rgb);
   color.rgb = uncharted2(color.rgb);
   color.rgb = unreal(color.rgb);
