@@ -1,4 +1,5 @@
 export { default as ACES } from "./aces.wgsl.js";
+export { default as ACES_HILL } from "./acesHill.wgsl.js";
 export { default as AGX } from "./agx.wgsl.js";
 export { default as HEJL } from "./hejl.wgsl.js";
 export { default as FILMIC } from "./filmic.wgsl.js";
@@ -6,6 +7,7 @@ export { default as LOTTES } from "./lottes.wgsl.js";
 export { default as NEUTRAL } from "./neutral.wgsl.js";
 export { default as REINHARD } from "./reinhard.wgsl.js";
 export { default as REINHARD2 } from "./reinhard2.wgsl.js";
+export { default as REINHARD_JODIE } from "./reinhardJodie.wgsl.js";
 export { default as UCHIMURA } from "./uchimura.wgsl.js";
 export { default as UNCHARTED2 } from "./uncharted2.wgsl.js";
 export { default as UNREAL } from "./unreal.wgsl.js";

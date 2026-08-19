@@ -14,7 +14,7 @@ A collection of tone mapping functions available both as ES modules strings and 
 
 Looking for WebGL? See [glsl-tone-map](https://github.com/dmnsgn/shaders-tone-map/tree/main/packages/glsl-tone-map), which ships the same operators in GLSL.
 
-![Response curves for the eleven tone mapping operators, linear input against linear output](https://raw.githubusercontent.com/dmnsgn/shaders-tone-map/main/screenshot.svg)
+![Response curves for the thirteen tone mapping operators, linear input against linear output](https://raw.githubusercontent.com/dmnsgn/shaders-tone-map/main/screenshot.svg)
 
 [![paypal](https://img.shields.io/badge/donate-paypal-informational?logo=paypal)](https://paypal.me/dmnsgn)
 [![coinbase](https://img.shields.io/badge/donate-coinbase-informational?logo=coinbase)](https://commerce.coinbase.com/checkout/56cbdf28-e323-48d8-9c98-7019e72c97f3)
@@ -39,11 +39,13 @@ const shader = /* wgsl */ `
 ${wgslToneMap.AGX}
 ${wgslToneMap.NEUTRAL}
 ${wgslToneMap.ACES}
+${wgslToneMap.ACES_HILL}
 ${wgslToneMap.FILMIC}
 ${wgslToneMap.HEJL}
 ${wgslToneMap.LOTTES}
 ${wgslToneMap.REINHARD}
 ${wgslToneMap.REINHARD2}
+${wgslToneMap.REINHARD_JODIE}
 ${wgslToneMap.UCHIMURA}
 ${wgslToneMap.UNCHARTED2}
 ${wgslToneMap.UNREAL}
@@ -54,11 +56,13 @@ fn main() -> @location(0) vec4f {
   color = vec4f(agx(color.rgb), color.a);
   color = vec4f(neutral(color.rgb), color.a);
   color = vec4f(aces(color.rgb), color.a);
+  color = vec4f(acesHill(color.rgb), color.a);
   color = vec4f(filmic(color.rgb), color.a);
   color = vec4f(hejl(color.rgb), color.a);
   color = vec4f(lottes(color.rgb), color.a);
   color = vec4f(reinhard(color.rgb), color.a);
   color = vec4f(reinhard2(color.rgb), color.a);
+  color = vec4f(reinhardJodie(color.rgb), color.a);
   color = vec4f(uchimura(color.rgb), color.a);
   color = vec4f(uncharted2(color.rgb), color.a);
   color = vec4f(unreal(color.rgb), color.a);
