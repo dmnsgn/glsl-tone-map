@@ -5,12 +5,20 @@ const SAMPLES = 128;
 const X_MAX = 4; // linear input; covers the knee and the overshoot above white
 const Y_MAX = 1.25;
 
-const COLS = 4;
 const PLOT = { w: 170, h: 110 };
-const GAP = { x: 24, y: 40 };
-const MARGIN = { top: 30, right: 20, bottom: 48, left: 48 };
+const GAP = { x: 24, y: 30 };
+const MARGIN = { top: 26, right: 20, bottom: 48, left: 48 };
 
 const names = operators("wgsl").toSorted((a, b) => a.localeCompare(b));
+
+// Whichever column count leaves the fewest empty cells, ties going to the
+// fewest columns so panels stay as wide as possible. Fixing it at 4 stranded a
+// lone panel above three empty cells as soon as the count reached 13.
+const COLS = [4, 5, 6]
+  .map((cols) => ({ cols, spare: (cols - (names.length % cols)) % cols }))
+  .reduce((best, candidate) =>
+    candidate.spare < best.spare ? candidate : best,
+  ).cols;
 
 const dirUrl = packageUrl("wgsl");
 const sources = await Promise.all(
@@ -125,8 +133,9 @@ const polylines = curves.map((curve) =>
 const xTicks = [0, 1, 2, 3, 4];
 const yTicks = [0, 0.5, 1];
 
-// The full set is emitted once and re-used per panel; the highlighted curve is
-// drawn over its own ghost, so no per-panel exclusion is needed.
+const titleOf = (name) =>
+  name.replace(/([a-z])([A-Z])/g, "$1 $2").toUpperCase();
+
 const defs = `  <defs>
     <clipPath id="panel"><rect x="0" y="0" width="${PLOT.w}" height="${PLOT.h}"/></clipPath>
     <g id="ghosts" class="ghost">
@@ -158,7 +167,7 @@ const panels = names
         : "";
 
     return `  <g transform="translate(${x} ${y})">
-    <text class="panel-title" x="0" y="-10">${name}</text>
+    <text class="panel-title" x="0" y="0">${titleOf(name)}</text>
     <g class="grid">
 ${yTicks.map((t) => `      <line x1="0" y1="${sy(t).toFixed(1)}" x2="${PLOT.w}" y2="${sy(t).toFixed(1)}"/>`).join("\n")}
     </g>
@@ -176,15 +185,14 @@ ${xLabels}
 const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" role="img" aria-label="Response curves for ${names.length} tone mapping operators, linear input (0 to ${X_MAX}) against linear output. Each panel highlights one operator; the others repeat in grey for comparison.">
   <style>
     .surface { fill: #ffffff; }
-    .panel-title { fill: #1f1f1f; font-size: 12px; font-weight: 600; }
-    .tick { fill: #6d6d6d; font-size: 10px; font-variant-numeric: tabular-nums; }
+    .panel-title { fill: #1f1f1f; font-family: Georgia, "Times New Roman", Times, serif; font-size: 12px; letter-spacing: 0.07em; }
+    .tick { fill: #6d6d6d; font-family: Menlo, Consolas, "DejaVu Sans Mono", monospace; font-size: 10px; }
     .tick-y { text-anchor: end; }
     .tick-x { text-anchor: middle; }
     .grid line { stroke: #f2f2f2; stroke-width: 1; }
     .axis { stroke: #a39179; stroke-width: 1; }
     .ghost { fill: none; stroke: #6d6d6d; stroke-width: 1; stroke-opacity: 0.35; stroke-linejoin: round; stroke-linecap: round; }
     .curve { fill: none; stroke: #95171d; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
-    text { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
 
     @media (prefers-color-scheme: dark) {
       .surface { fill: #2b2119; }
