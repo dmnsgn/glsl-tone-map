@@ -34,6 +34,7 @@ ${glslToneMap.AGX}
 ${glslToneMap.NEUTRAL}
 ${glslToneMap.ACES}
 ${glslToneMap.FILMIC}
+${glslToneMap.HEJL}
 ${glslToneMap.LOTTES}
 ${glslToneMap.REINHARD}
 ${glslToneMap.REINHARD2}
@@ -47,6 +48,7 @@ void main() {
   color.rgb = neutral(color.rgb);
   color.rgb = aces(color.rgb);
   color.rgb = filmic(color.rgb);
+  color.rgb = hejl(color.rgb);
   color.rgb = lottes(color.rgb);
   color.rgb = reinhard(color.rgb);
   color.rgb = reinhard2(color.rgb);
@@ -63,6 +65,7 @@ void main() {
 #pragma glslify: neutral = require(glsl-tone-map/neutral)
 #pragma glslify: aces = require(glsl-tone-map/aces)
 #pragma glslify: filmic = require(glsl-tone-map/filmic)
+#pragma glslify: hejl = require(glsl-tone-map/hejl)
 #pragma glslify: lottes = require(glsl-tone-map/lottes)
 #pragma glslify: reinhard = require(glsl-tone-map/reinhard)
 #pragma glslify: reinhard2 = require(glsl-tone-map/reinhard2)
@@ -76,6 +79,7 @@ void main() {
   color.rgb = neutral(color.rgb);
   color.rgb = aces(color.rgb);
   color.rgb = filmic(color.rgb);
+  color.rgb = hejl(color.rgb);
   color.rgb = lottes(color.rgb);
   color.rgb = reinhard(color.rgb);
   color.rgb = reinhard2(color.rgb);
