@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+# 2.3.0 (2026-08-20)
+
+
+### Features
+
+* **glsl-tone-map:** add acesHill + add reinhardJodie ([4c4787a](https://github.com/dmnsgn/shaders-tone-map/commit/4c4787a9dc55ffa8039f00cd02d4b5ab2be6f04d))
+
+
+
 # [2.2.0](https://github.com/dmnsgn/glsl-tone-map/compare/v2.1.1...v2.2.0) (2025-09-03)
 
 
