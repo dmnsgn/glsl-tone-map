@@ -4,10 +4,8 @@ const packageName = basename(process.cwd());
 
 export default {
   commitAndTagVersion: {
-    releaseAs: "patch",
-    releaseCount: 0,
     tagPrefix: `${packageName}@v`,
-    npmPublishHint: `npm publish --access public --workspace ${packageName}`,
+    npmPublishHint: `npm publish --workspace ${packageName}`,
     releaseCommitMessageFormat: `chore(release): ${packageName}@{{currentTag}}`,
   },
 };

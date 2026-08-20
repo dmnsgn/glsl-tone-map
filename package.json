@@ -17,6 +17,8 @@
   "scripts": {
     "build:shaders": "node scripts/build.js",
     "build:plot": "deno run --unstable-webgpu --allow-read --allow-write scripts/plot.js",
+    "release:glsl": "npm exec -w glsl-tone-map -- npx snowdev release",
+    "release:wgsl": "npm exec -w wgsl-tone-map -- npx snowdev release",
     "test": "node --test \"test/*.test.js\""
   },
   "devDependencies": {

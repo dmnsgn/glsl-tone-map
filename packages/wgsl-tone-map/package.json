@@ -48,14 +48,11 @@
     },
     "./*.wgsl": "./*.wgsl"
   },
-  "main": "index.js",
-  "types": "types/index.d.ts",
+  "main": "./index.js",
+  "types": "./types/index.d.ts",
   "engines": {
     "node": ">=22.0.0",
     "npm": ">=10.5.1",
     "snowdev": ">=3.0.0-alpha.1"
-  },
-  "snowdev": {
-    "dependencies": []
   }
 }
