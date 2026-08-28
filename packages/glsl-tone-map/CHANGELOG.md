@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.3.1](https://github.com/dmnsgn/shaders-tone-map/compare/glsl-tone-map@v2.3.0...glsl-tone-map@v2.3.1) (2026-08-28)
+
+
+
 # 2.3.0 (2026-08-20)
 
 
